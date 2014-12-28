@@ -1,0 +1,236 @@
+1022
+CREATE TABLE omni_system
+(
+id int,
+name int,
+ip varchar(255),
+FirstName varchar(255),
+key varchar(255),
+port varchar(255)
+);
+
+CREATE TABLE log
+(
+time int,
+zone varchar(255),
+status varchar(255),
+text varchar(255)
+);
+
+CREATE TABLE email_settings
+(
+username int,
+from varchar(255),
+password varchar(255),
+mailhost varchar(255),
+port varchar(255),
+auth,
+encryption,
+port int
+);
+
+CREATE TABLE twitter_settings
+(
+ConKey int,
+ConSecret varchar(255),
+AccessToken varchar(255),
+City varchar(255)
+);
+
+-----------------------------------------
+
+
+-- MySQL dump 10.13  Distrib 5.5.34, for debian-linux-gnu (armv7l)
+--
+-- Host: localhost    Database: omni
+-- ------------------------------------------------------
+-- Server version       5.5.34-0ubuntu0.13.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `alarmnotification`
+--
+
+DROP TABLE IF EXISTS `alarmnotification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `alarmnotification` (
+  `idalarmnotification` int(11) NOT NULL AUTO_INCREMENT,
+  `contact` varchar(85) DEFAULT NULL,
+  `contacttype` int(11) DEFAULT NULL,
+  `modealert` int(11) DEFAULT NULL,
+  `alarmtype` int(11) DEFAULT NULL,
+  `time1` int(11) DEFAULT NULL,
+  `time2` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idalarmnotification`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alarmnotification`
+--
+
+LOCK TABLES `alarmnotification` WRITE;
+/*!40000 ALTER TABLE `alarmnotification` DISABLE KEYS */;
+INSERT INTO `alarmnotification` VALUES (1,'mike@coffeys.net',1,0,NULL,NULL,NULL),(2,'mike@coffeys.net',1,1,NULL,NULL,NULL),(3,'mike@coffeys.net',1,NULL,1,NULL,NULL),(4,'mike@coffeys.net',1,NULL,0,5,9),(8,'mike@coffeys.net',1,NULL,2,20,24),(9,'5126944545@txt.att.net',1,0,NULL,NULL,NULL),(10,'5126944545@txt.att.net',1,1,NULL,NULL,NULL),(11,'5126944545@txt.att.net',1,NULL,0,5,9),(12,'5126944545@txt.att.net',1,NULL,1,NULL,NULL),(13,'5126944545@txt.att.net',1,NULL,2,20,24),(14,'5126944545@txt.att.net',1,NULL,3,NULL,NULL);
+/*!40000 ALTER TABLE `alarmnotification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `email_settings`
+--
+
+DROP TABLE IF EXISTS `email_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `email_settings` (
+  `idemail_settings` int(11) NOT NULL AUTO_INCREMENT,
+  `from` varchar(86) DEFAULT NULL,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `mailhost` varchar(85) DEFAULT NULL,
+  `port` mediumint(9) DEFAULT NULL,
+  `auth` tinyint(4) DEFAULT NULL,
+  `encryption` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`idemail_settings`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `email_settings`
+--
+
+LOCK TABLES `email_settings` WRITE;
+/*!40000 ALTER TABLE `email_settings` DISABLE KEYS */;
+INSERT INTO `email_settings` VALUES (1,'mikecoffey85@gmail.com','mikecoffey85','coffey1234','smtp.gmail.com',465,1,1);
+/*!40000 ALTER TABLE `email_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `log`
+--
+
+DROP TABLE IF EXISTS `log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `log` (
+  `idlog` bigint(20) NOT NULL AUTO_INCREMENT,
+  `time` datetime DEFAULT NULL,
+  `zone` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `text` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idlog`)
+) ENGINE=MyISAM AUTO_INCREMENT=26348627 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `log`
+--
+
+LOCK TABLES `log` WRITE;
+/*!40000 ALTER TABLE `log` DISABLE KEYS */;
+INSERT INTO `log` VALUES (26348619,'2012-06-06 11:48:24',0,0,'db reconnect'),(26348620,'2012-06-06 14:59:16',0,0,'db reconnect'),(26348621,'2012-06-08 11:32:20',0,0,'db reconnect'),(26348622,'2012-06-09 12:36:27',0,0,'db reconnect'),(26348623,'2012-06-12 11:07:44',0,0,'db reconnect'),(26348624,'2012-06-18 11:29:37',0,0,'db reconnect'),(26348625,'2012-06-19 11:58:12',0,0,'db reconnect'),(26348626,'2012-06-21 11:59:11',0,0,'db reconnect');
+/*!40000 ALTER TABLE `log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notification`
+--
+
+DROP TABLE IF EXISTS `notification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notification` (
+  `idnotification` bigint(20) NOT NULL AUTO_INCREMENT,
+  `contact` varchar(85) DEFAULT NULL,
+  `contacttype` int(11) DEFAULT NULL,
+  `zones` varchar(85) DEFAULT NULL,
+  `modealert` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idnotification`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notification`
+--
+
+LOCK TABLES `notification` WRITE;
+/*!40000 ALTER TABLE `notification` DISABLE KEYS */;
+INSERT INTO `notification` VALUES (1,'mike@coffeys.net',1,',10,',1);
+/*!40000 ALTER TABLE `notification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `omni_system`
+--
+
+DROP TABLE IF EXISTS `omni_system`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `omni_system` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(45) DEFAULT NULL,
+  `ip` varchar(20) DEFAULT NULL,
+  `key` varchar(60) DEFAULT NULL,
+  `port` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `omni_system`
+--
+
+LOCK TABLES `omni_system` WRITE;
+/*!40000 ALTER TABLE `omni_system` DISABLE KEYS */;
+INSERT INTO `omni_system` VALUES (1,'home','192.168.1.14','A6-BF-15-94-0A-20-6A-22-9B-04-AF-9A-81-24-9F-EF',4369);
+/*!40000 ALTER TABLE `omni_system` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `twitter_settings`
+--
+
+DROP TABLE IF EXISTS `twitter_settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `twitter_settings` (
+  `idtwitter_settings` int(11) NOT NULL AUTO_INCREMENT,
+  `ConKey` varchar(120) DEFAULT NULL,
+  `ConSecret` varchar(120) DEFAULT NULL,
+  `AccessToken` varchar(120) DEFAULT NULL,
+  `AccessTokenSec` varchar(120) DEFAULT NULL,
+  PRIMARY KEY (`idtwitter_settings`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `twitter_settings`
+--
+
+LOCK TABLES `twitter_settings` WRITE;
+/*!40000 ALTER TABLE `twitter_settings` DISABLE KEYS */;
+INSERT INTO `twitter_settings` VALUES (1,'gsMqa04qNgMVF3EaRcTpQ','TsGPvxLS4CjTWuCFUPHEXX1hq9EnDXPgPoXml68Lw74','399495569-kBjgX2231HXbMwuRlLOHzZaoTsEQ9Sg5zWRJ1rhE','wRXxPFMy8U4pqq6VDa2iGyQ1BV564p9a7xMntbVpI');
+/*!40000 ALTER TABLE `twitter_settings` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-09-14 20:42:39
